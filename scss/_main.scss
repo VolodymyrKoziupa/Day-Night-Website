@@ -1,0 +1,233 @@
+// Write your styles here
+
+
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name )
+}
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@mixin btn-theme{
+    background-color: $btn-color;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    border-radius: 0.1rem;
+    color: $link-color;
+    font-weight: weight(bold);
+  
+}
+
+@mixin link-theme{
+    color: $link-color;
+    font-family: $font-style-headers;
+
+}
+
+@mixin span-theme{
+    background-color: $highlight-text;
+    display: inline-block; 
+    padding-top: 0.35em;
+}
+
+
+
+
+body{
+    margin: 0 auto;
+    font-family: $font-style;
+    background-color: $background-color;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.header{
+    margin: 0 auto 25px;
+    background: no-repeat;
+    background: $background-img;
+    background-position:center;
+    background-size: cover;
+    padding-bottom:10%;
+    background-repeat:no-repeat;
+    border-bottom-right-radius: 40% 40%;
+    overflow: hidden;
+
+    &-wrap{
+        height: 30em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 35%;
+        padding-left: 8em;
+        color:$headings-color;
+        font-family: $font-style-headers;
+        line-height: 1.5;
+
+        .header_heading{
+            font-weight: weight(bold);
+            font-size: 3.5em;
+            line-height:1;
+            padding-top: 0;
+            margin: 0 auto;
+    
+
+        .highlight-text{
+            padding: 0;
+        }
+    }
+
+        .header_text + div .login{
+            margin-left: 9em;
+        }
+    }
+}
+
+
+
+
+.landing-logo{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    p{
+        font-size: 1.5em;
+        font-weight: weight(bold);
+        padding-left: 0.5em
+    }
+    span{
+        display: block;
+        font-weight: weight(regular);
+        font-size: 0.5em;
+    }
+}
+
+
+
+
+.section{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+&_text{
+    margin: 0 auto;
+    font-weight: weight(bold);
+    color: $headings-color;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    font-family: $font-style-headers;
+   
+}
+  
+&_card{
+    @include flexCenter;
+    background-color: $primary-color;
+    margin-bottom: 2em;
+    border-radius: 0.5em;
+
+    &_img{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        padding: 1em;
+        border-radius: 1.5em;
+       
+       
+    }
+    &_right_container{
+        @include flexCenter;
+        flex-direction: column;
+        color: $text-post-color;
+        padding: 0 5em;
+        line-height: 1.5;
+    
+       
+        &_heading{
+            font-weight: weight(bold);
+            color: $link-color;
+            font-size: 1.2em;
+            font-family: $font-style-headers;
+            }
+        }
+    }
+}
+
+
+
+
+.section_banner{
+    background: 
+    linear-gradient(
+        to right,
+        rgba($btn-color, 1),
+        rgba($secondary-color,1 )
+    );
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // float:inline-start;
+    transform: translate(0,50%);
+    width: 110%;
+    top: 50%;
+ 
+    &_text_wrap{
+        padding-bottom: 1.5em;
+    .section_banner_heading{
+        color:$headings-color;
+        font-weight: weight(bold);
+        font-size: 1.5em;
+        font-family: $font-style-headers;
+ 
+    }
+
+    .section_banner_text{
+        color: $text-post-color;
+      
+        }
+    }
+}
+
+
+
+
+.footer{
+    background-color: $primary-color;
+   &-wrap{
+        padding: 8em 0 2em;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: $text-post-color;
+        .footer_logo{
+            @extend .landing-logo;
+           
+        }
+        .footer_text{
+            width: 25%;
+        }
+    }
+}
+
+
+button{
+    @include btn-theme
+}
+
+a{
+    @include link-theme
+}
+
+.highlight-text{
+    @include span-theme
+}
+
